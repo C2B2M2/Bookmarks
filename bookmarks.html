@@ -7,7 +7,7 @@
     <style>
         :root {
             --bg-color: #3C3C3C;      
-            --card-bg: #604D3F;      
+            --card-bg: #2A2A2A;
             --text-color: #F1F1F1;   
             --accent-white: #FFFFFF; 
             --hover-bg: rgba(255, 255, 255, 0.05); 
@@ -19,12 +19,29 @@
             background-color: var(--bg-color);
             font-family: 'Segoe UI', Roboto, Arial, sans-serif;
             display: flex;
+            flex-direction: column; /* Элементы теперь один под другим */
             justify-content: center;
             align-items: center;
             height: 100vh;
             color: var(--text-color);
             overflow: hidden;
         }
+
+        /* Стили для логотипа Google */
+        .google-logo {
+            font-size: 90px;
+            font-weight: 500;
+            margin-bottom: 40px;
+            letter-spacing: -3px;
+            user-select: none;
+            display: flex;
+        }
+        .g1 { color: #4285f4; }
+        .o1 { color: #ea4335; }
+        .o2 { color: #fbbc05; }
+        .g2 { color: #4285f4; }
+        .l  { color: #34a853; }
+        .e  { color: #ea4335; }
 
         .shortcuts-grid {
             display: grid;
@@ -48,10 +65,9 @@
             background-color: var(--hover-bg);
         }
 
-        /* Белый эффект при наведении */
         .shortcut:hover .icon-circle {
             background-color: var(--accent-white);
-            color: var(--bg-color); /* Буква становится цвета фона */
+            color: var(--bg-color);
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
         }
@@ -84,11 +100,16 @@
         }
 
         .shortcut:hover .shortcut-label {
-            color: var(--accent-white); /* Текст тоже становится чисто белым */
+            color: var(--accent-white);
         }
     </style>
 </head>
 <body>
+
+    <!-- Надпись Google -->
+    <div class="google-logo">
+        <span class="g1">G</span><span class="o1">o</span><span class="o2">o</span><span class="g2">g</span><span class="l">l</span><span class="e">e</span>
+    </div>
 
     <div class="shortcuts-grid">
         <a href="https://www.ya.ru" class="shortcut">
@@ -106,16 +127,17 @@
             <span class="shortcut-label">YouTube</span>
         </a>
 
-        <a href="https://vk.com/shilkaanonim" class="shortcut">
+        <a href="https://vk.com" class="shortcut">
             <div class="icon-circle">Vk</div>
-            <span class="shortcut-label">Vk sh</span>
+            <span class="shortcut-label)я">Vk sh</span>
         </a>
 
         <a href="http://4pda.to" class="shortcut">
             <div class="icon-circle">4</div>
             <span class="shortcut-label">4pda</span>
         </a>
-		<a href="https://www.chita.ru" class="shortcut">
+
+        <a href="https://www.chita.ru" class="shortcut">
             <div class="icon-circle">Ch</div>
             <span class="shortcut-label">Чита</span>
         </a>
@@ -126,7 +148,7 @@
         </a>
 
         <a href="https://dtf.ru" class="shortcut">
-            <div class="icon-circle">D</div>
+            <div class="icon-circle">K</div>
             <span class="shortcut-label">Dtf</span>
         </a>
 
@@ -140,7 +162,7 @@
             <span class="shortcut-label">Кинопоиск</span>
         </a>
 
-        <a href="https://rutracker.org/forum/index.php" class="shortcut">
+        <a href="https://rutracker.org" class="shortcut">
             <div class="icon-circle">R</div>
             <span class="shortcut-label">Рутрекер</span>
         </a>
@@ -148,5 +170,3 @@
 
 </body>
 </html>
-
-
