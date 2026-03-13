@@ -1,17 +1,140 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Мои Закладки</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новая вкладка</title>
     <style>
-        body { font-family: sans-serif; background-color: #f0f0f0; padding: 20px; }
-        h1 { color: #333; }
-        a { display: block; padding: 10px; margin: 5px 0; background: white; text-decoration: none; color: blue; border-radius: 5px; }
-        a:hover { background-color: #e0e0e0; }
+        :root {
+            --bg-color: #3C3C3C;      
+            --card-bg: #4A4A4A;      
+            --text-color: #F1F1F1;   
+            --accent-white: #FFFFFF; 
+            --hover-bg: rgba(255, 255, 255, 0.05); 
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: var(--text-color);
+            overflow: hidden;
+        }
+
+        .shortcuts-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 112px);
+            gap: 20px 24px;
+            justify-content: center;
+        }
+
+        .shortcut {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+            padding: 16px 0;
+            border-radius: 12px;
+            transition: background-color 0.3s ease;
+        }
+
+        .shortcut:hover {
+            background-color: var(--hover-bg);
+        }
+
+        /* Белый эффект при наведении */
+        .shortcut:hover .icon-circle {
+            background-color: var(--accent-white);
+            color: var(--bg-color); /* Буква становится цвета фона */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .icon-circle {
+            width: 58px;
+            height: 58px;
+            background-color: var(--card-bg);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 14px;
+            font-size: 24px;
+            font-weight: 600;
+            text-transform: uppercase;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+            transition: all 0.25s ease;
+        }
+
+        .shortcut-label {
+            font-size: 13px;
+            width: 100px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            transition: color 0.25s ease;
+        }
+
+        .shortcut:hover .shortcut-label {
+            color: var(--accent-white); /* Текст тоже становится чисто белым */
+        }
     </style>
 </head>
 <body>
-    <h1>Избранное</h1>
-    <a href="https://google.com">Google</a>
-    <a href="https://ya.ru">Яндекс</a>
+
+    <div class="shortcuts-grid">
+        <a href="https://www.ya.ru" class="shortcut">
+            <div class="icon-circle">Ya</div>
+            <span class="shortcut-label">Яндекс</span>
+        </a>
+
+        <a href="https://www.playground.ru" class="shortcut">
+            <div class="icon-circle">Pg</div>
+            <span class="shortcut-label">PlayGround</span>
+        </a>
+
+        <a href="https://www.youtube.com" class="shortcut">
+            <div class="icon-circle">Y</div>
+            <span class="shortcut-label">YouTube</span>
+        </a>
+
+        <a href="https://vk.com/shilkaanonim" class="shortcut">
+            <div class="icon-circle">Vk</div>
+            <span class="shortcut-label">Vk sh</span>
+        </a>
+
+        <a href="http://4pda.to" class="shortcut">
+            <div class="icon-circle">4</div>
+            <span class="shortcut-label">4pda</span>
+        </a>
+		<a href="https://www.chita.ru" class="shortcut">
+            <div class="icon-circle">Ch</div>
+            <span class="shortcut-label">Чита</span>
+        </a>
+
+        <a href="https://2ch.org" class="shortcut">
+            <div class="icon-circle">2</div>
+            <span class="shortcut-label">2ch</span>
+        </a>
+
+        <a href="https://www.kinopoisk.ru" class="shortcut">
+            <div class="icon-circle">K</div>
+            <span class="shortcut-label">Кинопоиск</span>
+        </a>
+
+        <a href="https://rutracker.org/forum/index.php" class="shortcut">
+            <div class="icon-circle">R</div>
+            <span class="shortcut-label">Рутрекер</span>
+        </a>
+    </div>
+
 </body>
 </html>
