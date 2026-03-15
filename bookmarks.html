@@ -12,7 +12,6 @@
             --accent-white: #FFFFFF;
             --hover-bg: rgba(255, 255, 255, 0.05);
         }
-
         body {
             margin: 0;
             padding: 0;
@@ -20,16 +19,14 @@
             font-family: 'Segoe UI', Roboto, Arial, sans-serif;
             display: flex;
             flex-direction: column;
-            /* Изменено: прижимаем к верху и добавляем отступ */
-            justify-content: flex-start; 
-            padding-top: 12vh; 
+            justify-content: flex-start;
+            padding-top: 12vh;
             align-items: center;
             height: 100vh;
             color: var(--text-color);
             overflow: hidden;
             box-sizing: border-box;
         }
-
         .google-logo {
             font-size: 90px;
             font-weight: 500;
@@ -38,7 +35,6 @@
             user-select: none;
             display: flex;
         }
-
         .g1 { color: #4285f4; }
         .o1 { color: #ea4335; }
         .o2 { color: #fbbc05; }
@@ -48,12 +44,10 @@
 
         .shortcuts-grid {
             display: grid;
-            /* Изменено на 6 колонок для симметрии (12 ярлыков / 6 = 2 ряда) */
             grid-template-columns: repeat(6, 112px);
             gap: 20px 24px;
             justify-content: center;
         }
-
         .shortcut {
             display: flex;
             flex-direction: column;
@@ -63,19 +57,12 @@
             padding: 16px 0;
             border-radius: 12px;
             transition: background-color 0.3s ease;
+            position: relative;
+            cursor: pointer;
         }
-
         .shortcut:hover {
             background-color: var(--hover-bg);
         }
-
-        .shortcut:hover .icon-circle {
-            background-color: var(--accent-white);
-            color: var(--bg-color);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
         .icon-circle {
             width: 58px;
             height: 58px;
@@ -91,7 +78,12 @@
             box-shadow: 0 3px 6px rgba(0,0,0,0.25);
             transition: all 0.25s ease;
         }
-
+        .shortcut:hover .icon-circle {
+            background-color: var(--accent-white);
+            color: var(--bg-color);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
         .shortcut-label {
             font-size: 13px;
             width: 100px;
@@ -99,21 +91,58 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-            transition: color 0.25s ease;
         }
 
-        .shortcut:hover .shortcut-label {
-            color: var(--accent-white);
+        /* --- ЛОГИКА ПАПКИ (+10% К ПРЕДЫДУЩЕМУ) --- */
+        .folder-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .folder-content {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #252525;
+            border-radius: 18px;
+            padding: 14px; 
+            /* Колонки стали 100px (было 90px) */
+            grid-template-columns: repeat(2, 100px); 
+            gap: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.9);
+            z-index: 999;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Параметры ярлыков внутри папки */
+        .folder-content .shortcut {
+            padding: 10px 0;
+        }
+
+        .folder-content .icon-circle {
+            width: 51px;      /* Было 46px (+10%) */
+            height: 51px;     /* Было 46px (+10%) */
+            font-size: 20px;  /* Шрифт чуть крупнее */
+            margin-bottom: 10px;
+        }
+
+        .folder-content .shortcut-label {
+            font-size: 12px;  /* Было 11px */
+            width: 90px;
+        }
+
+        .folder-wrapper:hover .folder-content {
+            display: grid;
         }
     </style>
 </head>
 <body>
-
     <div class="google-logo">
         <span class="g1">G</span><span class="o1">o</span><span class="o2">o</span><span class="g2">g</span><span class="l">l</span><span class="e">e</span>
     </div>
-
     <div class="shortcuts-grid">
         <a href="https://www.ya.ru" class="shortcut">
             <div class="icon-circle">Ya</div>
@@ -127,14 +156,25 @@
             <div class="icon-circle">Y</div>
             <span class="shortcut-label">YouTube</span>
         </a>
-        <a href="https://vk.com/shilkaanonim" class="shortcut">
-            <div class="icon-circle">Vk</div>
-            <span class="shortcut-label">Sh</span>
-        </a>
-        <a href="https://vk.com/chita_overhear" class="shortcut">
-            <div class="icon-circle">Vk</div>
-            <span class="shortcut-label">Ch</span>
-        </a>
+
+        <!-- ПАПКА VK ПОВЕРХ -->
+        <div class="folder-wrapper">
+            <div class="shortcut">
+                <div class="icon-circle" style="color: #4285f4; border: 1px solid rgba(66, 133, 244, 0.3);">Vk</div>
+                <span class="shortcut-label">Сообщества</span>
+            </div>
+            <div class="folder-content">
+                <a href="https://vk.com/shilkaanonim" class="shortcut">
+                    <div class="icon-circle">Sh</div>
+                    <span class="shortcut-label">Шилка</span>
+                </a>
+                <a href="https://vk.com/chita_overhear" class="shortcut">
+                    <div class="icon-circle">Ch</div>
+                    <span class="shortcut-label">Чита</span>
+                </a>
+            </div>
+        </div>
+
         <a href="http://4pda.to" class="shortcut">
             <div class="icon-circle">4</div>
             <span class="shortcut-label">4pda</span>
@@ -164,6 +204,5 @@
             <span class="shortcut-label">Рутрекер</span>
         </a>
     </div>
-
 </body>
 </html>
