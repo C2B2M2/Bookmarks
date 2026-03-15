@@ -6,11 +6,11 @@
     <title>Новая вкладка</title>
     <style>
         :root {
-            --bg-color: #3C3C3C;      
+            --bg-color: #3C3C3C;
             --card-bg: #2A2A2A;
-            --text-color: #F1F1F1;   
-            --accent-white: #FFFFFF; 
-            --hover-bg: rgba(255, 255, 255, 0.05); 
+            --text-color: #F1F1F1;
+            --accent-white: #FFFFFF;
+            --hover-bg: rgba(255, 255, 255, 0.05);
         }
 
         body {
@@ -19,33 +19,37 @@
             background-color: var(--bg-color);
             font-family: 'Segoe UI', Roboto, Arial, sans-serif;
             display: flex;
-            flex-direction: column; /* Элементы теперь один под другим */
-            justify-content: center;
+            flex-direction: column;
+            /* Изменено: прижимаем к верху и добавляем отступ */
+            justify-content: flex-start; 
+            padding-top: 12vh; 
             align-items: center;
             height: 100vh;
             color: var(--text-color);
             overflow: hidden;
+            box-sizing: border-box;
         }
 
-        /* Стили для логотипа Google */
         .google-logo {
             font-size: 90px;
             font-weight: 500;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             letter-spacing: -3px;
             user-select: none;
             display: flex;
         }
+
         .g1 { color: #4285f4; }
         .o1 { color: #ea4335; }
         .o2 { color: #fbbc05; }
         .g2 { color: #4285f4; }
-        .l  { color: #34a853; }
-        .e  { color: #ea4335; }
+        .l { color: #34a853; }
+        .e { color: #ea4335; }
 
         .shortcuts-grid {
             display: grid;
-            grid-template-columns: repeat(5, 112px);
+            /* Изменено на 6 колонок для симметрии (12 ярлыков / 6 = 2 ряда) */
+            grid-template-columns: repeat(6, 112px);
             gap: 20px 24px;
             justify-content: center;
         }
@@ -106,7 +110,6 @@
 </head>
 <body>
 
-    <!-- Надпись Google -->
     <div class="google-logo">
         <span class="g1">G</span><span class="o1">o</span><span class="o2">o</span><span class="g2">g</span><span class="l">l</span><span class="e">e</span>
     </div>
@@ -116,57 +119,46 @@
             <div class="icon-circle">Ya</div>
             <span class="shortcut-label">Яндекс</span>
         </a>
-
         <a href="https://www.playground.ru" class="shortcut">
             <div class="icon-circle">Pg</div>
             <span class="shortcut-label">PlayGround</span>
         </a>
-
         <a href="https://www.youtube.com" class="shortcut">
             <div class="icon-circle">Y</div>
             <span class="shortcut-label">YouTube</span>
         </a>
-
-        <a href="https://vk.com/shilkaanonim" class="shortcut">
+        <a href="https://vk.com" class="shortcut">
             <div class="icon-circle">Vk</div>
             <span class="shortcut-label">Sh</span>
         </a>
-		
-		<a href="https://vk.com/chita_overhear" class="shortcut">
+        <a href="https://vk.com" class="shortcut">
             <div class="icon-circle">Vk</div>
             <span class="shortcut-label">Ch</span>
         </a>
-
         <a href="http://4pda.to" class="shortcut">
             <div class="icon-circle">4</div>
             <span class="shortcut-label">4pda</span>
         </a>
-
         <a href="https://www.chita.ru" class="shortcut">
             <div class="icon-circle">Ch</div>
             <span class="shortcut-label">Чита</span>
         </a>
-
         <a href="https://2ch.org" class="shortcut">
             <div class="icon-circle">2</div>
             <span class="shortcut-label">2ch</span>
         </a>
-
         <a href="https://dtf.ru" class="shortcut">
             <div class="icon-circle">K</div>
             <span class="shortcut-label">Dtf</span>
         </a>
-
         <a href="https://github.com" class="shortcut">
             <div class="icon-circle">G</div>
             <span class="shortcut-label">Github</span>
         </a>
-
         <a href="https://www.kinopoisk.ru" class="shortcut">
             <div class="icon-circle">K</div>
             <span class="shortcut-label">Кинопоиск</span>
         </a>
-
         <a href="https://rutracker.org" class="shortcut">
             <div class="icon-circle">R</div>
             <span class="shortcut-label">Рутрекер</span>
